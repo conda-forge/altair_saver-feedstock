@@ -27,11 +27,19 @@ requirements:
     - selenium
     - nodejs
     - vega-cli
+    - vega-lite-cli
 
 test:
   imports:
     - altair_saver
     - altair_saver.savers
+  requires:
+    - pip
+  files:
+    - test_node.py
+  commands:
+    - pip check
+    - python test_node.py
 
 about:
   home: "http://github.com/altair-viz/altair_saver/"
