@@ -1,18 +1,18 @@
 {% set name = "altair_saver" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 0c6eea22b7651123594a3fed97074941ceb571ab7738633a62f28191d17b96da
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ff6a7950a5d5ab7e3cdc7a1bb12de3d26737af61c780460ca8437d029a60fa0b
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -42,11 +42,11 @@ test:
     - python test_node.py
 
 about:
-  home: "http://github.com/altair-viz/altair_saver/"
+  home: http://github.com/altair-viz/altair_saver/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: "A python engine for evaluating Altair transforms."
+  summary: A python engine for evaluating Altair transforms.
 
 extra:
   recipe-maintainers:
