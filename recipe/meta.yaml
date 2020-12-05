@@ -10,7 +10,7 @@ source:
   sha256: c098bcf6868e3ba11db108904dc3b8515b54505b89bca5f69527115487b88795
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -26,8 +26,8 @@ requirements:
     - altair_viewer
     - selenium
     - nodejs
-    - vega-cli
-    - vega-lite-cli
+    - vega-cli  # [not win]
+    - vega-lite-cli  # [not win]
 
 test:
   imports:
@@ -39,7 +39,7 @@ test:
     - test_node.py
   commands:
     - pip check
-    - python test_node.py
+    - python test_node.py  # [not win]
 
 about:
   home: http://github.com/altair-viz/altair_saver/
