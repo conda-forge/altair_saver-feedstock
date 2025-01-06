@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c098bcf6868e3ba11db108904dc3b8515b54505b89bca5f69527115487b88795
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - altair
     - altair_data_server >=0.4.0
     - altair_viewer
@@ -35,6 +35,7 @@ test:
     - altair_saver.savers
   requires:
     - pip
+    - python {{ python_min }}
   files:
     - test_node.py
   commands:
